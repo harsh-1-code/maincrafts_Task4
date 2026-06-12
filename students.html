@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students List</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2>Student Management Dashboard</h2>
+    
+    <a href="/add-student"><button>+ Add New Student</button></a>
+    
+    <a href="/logout" style="float: right;">Logout</a>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Actions</th>
+        </tr>
+        
+        {% for s in students %}
+        <tr>
+            <td>{{ s['name'] }}</td>
+            <td>{{ s['email'] }}</td>
+            <td>{{ s['course'] }}</td>
+            <td>
+                <a href="/edit/{{ s['id'] }}">Edit</a> | 
+                <a href="/delete/{{ s['id'] }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
